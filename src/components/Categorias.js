@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { getCategories } from '../services/api';
 
 class Categorias extends React.Component {
@@ -17,7 +18,7 @@ class Categorias extends React.Component {
 
   render() {
     const { categories } = this.state;
-
+    const { onInputChange } = this.props;
     return (
       <section>
         <div>
@@ -34,6 +35,7 @@ class Categorias extends React.Component {
                 id={ categoria.id }
                 name="categoria"
                 value={ categoria.name }
+                onClick={ onInputChange }
               />
               { categoria.name }
             </label>
@@ -43,5 +45,9 @@ class Categorias extends React.Component {
     );
   }
 }
+
+Categorias.propTypes = {
+  onInputChange: PropTypes.arrayOf.isRequired,
+};
 
 export default Categorias;

@@ -1,13 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-class ProductsConteiner extends React.Component {
+class ProductsContainer extends React.Component {
   render() {
+    const { searchItem, onInputChange } = this.props;
     return (
       <div>
-        <input type="text" />
+        <input
+          type="text"
+          data-testid="query-input"
+          name="searchInput"
+          onChange={ onInputChange }
+        />
+        <button
+          type="button"
+          data-testid="query-button"
+          onClick={ searchItem }
+        >
+          Search
+        </button>
       </div>
     );
   }
 }
 
-export default ProductsConteiner;
+ProductsContainer.propTypes = {
+  onInputChange: PropTypes.func.isRequired,
+  searchItem: PropTypes.func.isRequired,
+};
+
+export default ProductsContainer;
