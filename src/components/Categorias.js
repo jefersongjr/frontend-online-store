@@ -34,7 +34,7 @@ class Categorias extends React.Component {
                 type="radio"
                 id={ categoria.id }
                 name="categoria"
-                value={ categoria.name }
+                value={ categoria.id }
                 onClick={ onInputChange }
               />
               { categoria.name }
@@ -47,7 +47,7 @@ class Categorias extends React.Component {
 }
 
 Categorias.propTypes = {
-  onInputChange: PropTypes.arrayOf.isRequired,
+  onInputChange: PropTypes.func.isRequired,
 };
 
 export default Categorias;
