@@ -16,12 +16,12 @@ class Home extends React.Component {
   onInputChange = ({ target }) => {
     const { value, name } = target;
     if (name === 'categoria') {
-      this.setState({ [name]: value }, this.searchItem);
+      this.setState({ [name]: value }, this.searchItem); // SE FOR CATEGORIA JA ATUALIZA NO CLICK DO RADIO
     } else {
-      this.setState({ [name]: value });
+      this.setState({ [name]: value }); // SE NAO ATUALIZA SOMENTE O ESTADO DO INPUT
     }
   }
-
+  // FUNÇÂO QUE CHAMA A API E ATUALIZA A LISTA DE ITEMS
   searchItem = async () => {
     const { categoria, searchInput } = this.state;
     const itemsFound = await getProductsFromCategoryAndQuery(categoria, searchInput);
