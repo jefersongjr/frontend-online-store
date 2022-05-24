@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Home from './components/Home';
-import Cart from './components/Cart';
-import CartProduct from './components/CartProduct';
-import Checkout from './components/Checkout';
+import Home from './pages/Home';
+import Cart from './pages/Cart';
+import CartProduct from './pages/CartProduct';
+import Checkout from './pages/Checkout';
 
 class App extends React.Component {
   render() {
