@@ -21,6 +21,7 @@ class Home extends React.Component {
       this.setState({ [name]: value }); // SE NAO ATUALIZA SOMENTE O ESTADO DO INPUT
     }
   }
+
   // FUNÇÂO QUE CHAMA A API E ATUALIZA A LISTA DE ITEMS
   searchItem = async () => {
     const { categoria, searchInput } = this.state;
