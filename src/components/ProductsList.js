@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 class ProductsList extends React.Component {
   render() {
-    const { productsList } = this.props;
+    const { productsList, addToCart } = this.props;
     return (
       <div className="products-container">
         { productsList.map((item, index) => (
@@ -15,6 +15,15 @@ class ProductsList extends React.Component {
             <Link to={ `/product/details/${item.id}` } data-testid="product-detail-link">
               Ver detalhes
             </Link>
+            <button
+              type="button"
+              name="product-add-to-cart"
+              data-testid="product-add-to-cart"
+              id={ item.id }
+              onClick={ addToCart }
+            >
+              Adicionar ao Carrinho
+            </button>
           </div>))}
       </div>
     );
@@ -23,6 +32,7 @@ class ProductsList extends React.Component {
 
 ProductsList.propTypes = {
   productsList: PropTypes.arrayOf.isRequired,
+  addToCart: PropTypes.func.isRequired,
 };
 
 export default ProductsList;

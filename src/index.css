@@ -34,3 +34,7 @@ img {
   display: flex;
   flex-wrap: wrap;
 }
+
+.flex {
+  display: flex;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ProductsContainer from '../components/ProductsContainer';
 import Categorias from '../components/Categorias';
 import Header from '../components/Header';
@@ -35,6 +36,7 @@ class Home extends React.Component {
 
   render() {
     const { productsList, searched } = this.state;
+    const { addToCart } = this.props;
     return (
       <section>
         <Header />
@@ -45,7 +47,7 @@ class Home extends React.Component {
         <div className="container">
           {searched && (productsList.length === 0)
             ? 'Nenhum produto encontrador'
-            : <ProductsList productsList={ productsList } />}
+            : <ProductsList productsList={ productsList } addToCart={ addToCart } />}
           {searched === false && (
             <p data-testid="home-initial-message">
               Digite algum termo de pesquisa ou escolha uma categoria.
@@ -56,5 +58,9 @@ class Home extends React.Component {
     );
   }
 }
+
+Home.propTypes = {
+  addToCart: PropTypes.func.isRequired,
+};
 
 export default Home;
