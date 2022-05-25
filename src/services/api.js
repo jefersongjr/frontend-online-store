@@ -8,6 +8,13 @@ export async function getCategories() {
   return categoriesData;
 }
 
+async function getProductsDetailsByID(productID) {
+  const url = `https://api.mercadolibre.com/items/${productID}`;
+  const response = await fetch(url);
+  const productData = await response.json();
+  return productData;
+}
+
 export async function getProductsFromCategoryAndQuery(categoryId = '', query = '') {
   // Implemente aqui! Quando o fizer, descomente os parâmetros que essa função recebe
   let result;
@@ -32,3 +39,5 @@ export async function getProductsFromCategoryAndQuery(categoryId = '', query = '
   }
   return result;
 }
+
+export default getProductsDetailsByID;
