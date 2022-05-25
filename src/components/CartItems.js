@@ -13,11 +13,11 @@ class CartItems extends React.Component {
             <p>{item.price}</p>
             <div className="flex">
               <button type="button">
-                +
+                -
               </button>
               <p data-testid="shopping-cart-product-quantity">1</p>
               <button type="button">
-                -
+                +
               </button>
             </div>
           </div>
