@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class ProductsContainer extends React.Component {
   render() {
-    const { onInputChange, addToCart } = this.props;
+    const { searchItem, onInputChange } = this.props;
     return (
       <div>
         <input
@@ -15,7 +15,7 @@ class ProductsContainer extends React.Component {
         <button
           type="button"
           data-testid="query-button"
-          onClick={ addToCart }
+          onClick={ searchItem }
         >
           Search
         </button>
@@ -26,7 +26,7 @@ class ProductsContainer extends React.Component {
 
 ProductsContainer.propTypes = {
   onInputChange: PropTypes.func.isRequired,
-  addToCart: PropTypes.func.isRequired,
+  searchItem: PropTypes.func.isRequired,
 };
 
 export default ProductsContainer;
