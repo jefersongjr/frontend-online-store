@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from './Button';
 
 class Header extends React.Component {
@@ -6,6 +7,7 @@ class Header extends React.Component {
     return (
       <header>
         <Button />
+        <Link to="/">Home</Link>
       </header>
     );
   }
