@@ -19,7 +19,7 @@ class ProductsList extends React.Component {
               type="button"
               name="product-add-to-cart"
               data-testid="product-add-to-cart"
-              id={ item.id }
+              id={ JSON.stringify(item) }
               onClick={ addToCart }
             >
               Adicionar ao Carrinho
