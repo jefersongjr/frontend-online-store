@@ -18,7 +18,7 @@ class Button extends React.Component {
         >
           carrinho de compras
         </Link>
-        <div>
+        <div className="quantify-container ">
           <p data-testid="shopping-cart-size">
             { sumTotal }
           </p>
