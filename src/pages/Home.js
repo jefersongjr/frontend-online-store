@@ -36,10 +36,10 @@ class Home extends React.Component {
 
   render() {
     const { productsList, searched } = this.state;
-    const { addToCart } = this.props;
+    const { addToCart, cartItems } = this.props;
     return (
       <section>
-        <Header />
+        <Header cartItems={ cartItems } />
         <ProductsContainer
           onInputChange={ this.onInputChange }
           searchItem={ this.searchItem }
@@ -61,6 +61,7 @@ class Home extends React.Component {
 
 Home.propTypes = {
   addToCart: PropTypes.func.isRequired,
+  cartItems: PropTypes.arrayOf.isRequired,
 };
 
 export default Home;

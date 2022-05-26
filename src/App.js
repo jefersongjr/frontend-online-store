@@ -11,6 +11,14 @@ class App extends React.Component {
     cartItems: [],
   };
 
+  componentDidMount() {
+    if (!localStorage.getItem('cartItems') === false) {
+      this.setState({
+        cartItems: JSON.parse(localStorage.getItem('cartItems')),
+      });
+    }
+  }
+
   addToCart = async ({ target }) => {
     const { cartItems } = this.state;
     const productDecoded = JSON.parse(target.id);
@@ -21,7 +29,35 @@ class App extends React.Component {
       this.setState(() => ({
         cartItems: newArray,
       }));
+    } else if (cartItems.some((item) => item.product.id === productDecoded.id)) {
+      if (cartItems.length === 1) {
+        // PEGAMOS O PRODUTO REMOVIDO
+        const changedQuantityProduct = cartItems[0];
+        // ALTERAMOS A QUANTIDADE DO PRODUTO REMOVIDO
+        changedQuantityProduct.quantity += 1;
+        // ADICIONAMOS NOVAMENTE AO ARRAY
+        this.setState({ cartItems: [changedQuantityProduct] });
+      } else {
+        // CRIA O CLONE DO ARRAY PARA ALTERAÇÔES
+        const cartCloneArray = cartItems;
+        // ACHAMOS O OBJETO DO PRODUTO REMOVIDO
+        // PEGAMOS A POSIÇÂO DO PRODUTO REMOVIDO
+        const quantityProductIndex = cartCloneArray.findIndex(
+          (item) => item.product.id === productDecoded.id,
+        );
+        // Salvamos o produto removido
+        const changedQuantityProduct = cartCloneArray.filter(
+          (item) => item.product.id === productDecoded.id,
+        )[0];
+        // ALTERAMOS O OBJETO DO PRODUTO
+        changedQuantityProduct.quantity += 1;
+        // COLOCAMOS ELE ALTERADO NA MESMA POSIÇÂO
+        cartCloneArray[quantityProductIndex] = changedQuantityProduct;
+        //  MUDAMOS O ESTADO
+        this.setState({ cartItems: cartCloneArray });
+      }
     }
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
   };
 
   addProductQuantity = async ({ target }) => {
@@ -92,7 +128,12 @@ class App extends React.Component {
           <Route
             exact
             path="/"
-            render={ (props) => <Home { ...props } addToCart={ this.addToCart } /> }
+            render={ (props) => (
+              <Home
+                { ...props }
+                cartItems={ cartItems }
+                addToCart={ this.addToCart }
+              />) }
           />
           <Route
             path="/cart"
@@ -110,7 +151,11 @@ class App extends React.Component {
           <Route
             path="/product/details/:id"
             render={ (props) => (
-              <ProductDetails { ...props } addToCart={ this.addToCart } />
+              <ProductDetails
+                { ...props }
+                cartItems={ cartItems }
+                addToCart={ this.addToCart }
+              />
             ) }
           />
         </Switch>

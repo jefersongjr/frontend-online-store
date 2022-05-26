@@ -64,7 +64,7 @@ class ProductDetails extends React.Component {
       addToCart,
       match: {
         params: { id },
-      },
+      }, cartItems,
     } = this.props;
     const { product, userEmail, avaluation, userDescription } = this.state;
     const { title, price, thumbnail } = product;
@@ -79,7 +79,7 @@ class ProductDetails extends React.Component {
     }
     return (
       <>
-        <Header />
+        <Header cartItems={ cartItems } />
         <main>
           <h2 data-testid="product-detail-name">{title}</h2>
           <img src={ thumbnail } alt={ title } />
@@ -115,4 +115,5 @@ ProductDetails.propTypes = {
     }).isRequired,
   }).isRequired,
   addToCart: PropTypes.func.isRequired,
+  cartItems: PropTypes.arrayOf.isRequired,
 };

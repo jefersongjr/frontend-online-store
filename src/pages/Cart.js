@@ -8,7 +8,7 @@ class Cart extends React.Component {
     const { cartItems, addProductQuantity, removeProductQuantity } = this.props;
     return (
       <div>
-        <Header />
+        <Header cartItems={ cartItems } />
         {cartItems.length !== 0 ? (
           <CartItems
             cartItems={ cartItems }
