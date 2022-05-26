@@ -1,27 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ProductCard from './ProductCard';
 
 class CartItems extends React.Component {
   render() {
-    const { cartItems } = this.props;
+    const { cartItems, addProductQuantity, removeProductQuantity } = this.props;
     return (
       <div>
-        { cartItems.map((item) => (
-          <div key={ item.id }>
-            <h2 data-testid="shopping-cart-product-name">{item.title}</h2>
-            <img src={ item.thumbnail } alt={ item.title } />
-            <p>{item.price}</p>
-            <div className="flex">
-              <button type="button">
-                -
-              </button>
-              <p data-testid="shopping-cart-product-quantity">1</p>
-              <button type="button">
-                +
-              </button>
-            </div>
-          </div>
-        )) }
+        {cartItems.map((item, index) => (
+          <ProductCard
+            key={ `product${index}` }
+            removeProductQuantity={ removeProductQuantity }
+            addProductQuantity={ addProductQuantity }
+            quantity={ item.quantity }
+            item={ item.product }
+          />
+        ))}
       </div>
     );
   }
@@ -29,6 +23,8 @@ class CartItems extends React.Component {
 
 CartItems.propTypes = {
   cartItems: PropTypes.arrayOf.isRequired,
+  addProductQuantity: PropTypes.func.isRequired,
+  removeProductQuantity: PropTypes.func.isRequired,
 };
 
 export default CartItems;

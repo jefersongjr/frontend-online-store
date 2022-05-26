@@ -5,14 +5,21 @@ import Header from '../components/Header';
 
 class Cart extends React.Component {
   render() {
-    const { cartItems } = this.props;
+    const { cartItems, addProductQuantity, removeProductQuantity } = this.props;
     return (
       <div>
         <Header />
-        { cartItems.length !== 0
-          ? <CartItems cartItems={ cartItems } />
-          : <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p> }
-
+        {cartItems.length !== 0 ? (
+          <CartItems
+            cartItems={ cartItems }
+            removeProductQuantity={ removeProductQuantity }
+            addProductQuantity={ addProductQuantity }
+          />
+        ) : (
+          <p data-testid="shopping-cart-empty-message">
+            Seu carrinho está vazio
+          </p>
+        )}
       </div>
     );
   }
@@ -20,6 +27,8 @@ class Cart extends React.Component {
 
 Cart.propTypes = {
   cartItems: PropTypes.arrayOf.isRequired,
+  addProductQuantity: PropTypes.func.isRequired,
+  removeProductQuantity: PropTypes.func.isRequired,
 };
 
 export default Cart;
