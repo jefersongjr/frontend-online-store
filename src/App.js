@@ -29,8 +29,13 @@ class App extends React.Component {
       this.setState(() => ({
         cartItems: newArray,
       }));
-    } else if (cartItems.some((item) => item.product.id === productDecoded.id)) {
-      if (cartItems.length === 1) {
+    } else if (
+      cartItems.some((item) => item.product.id === productDecoded.id)
+    ) {
+      if (
+        cartItems.length === 1
+        && cartItems[0].quantity < productDecoded.available_quantity[0]
+      ) {
         // PEGAMOS O PRODUTO REMOVIDO
         const changedQuantityProduct = cartItems[0];
         // ALTERAMOS A QUANTIDADE DO PRODUTO REMOVIDO
@@ -50,9 +55,14 @@ class App extends React.Component {
           (item) => item.product.id === productDecoded.id,
         )[0];
         // ALTERAMOS O OBJETO DO PRODUTO
-        changedQuantityProduct.quantity += 1;
-        // COLOCAMOS ELE ALTERADO NA MESMA POSIÇÂO
-        cartCloneArray[quantityProductIndex] = changedQuantityProduct;
+        if (
+          changedQuantityProduct.quantity
+          < changedQuantityProduct.product.available_quantity
+        ) {
+          changedQuantityProduct.quantity += 1;
+          // COLOCAMOS ELE ALTERADO NA MESMA POSIÇÂO
+          cartCloneArray[quantityProductIndex] = changedQuantityProduct;
+        }
         //  MUDAMOS O ESTADO
         this.setState({ cartItems: cartCloneArray });
       }
@@ -67,7 +77,12 @@ class App extends React.Component {
       // PEGAMOS O PRODUTO REMOVIDO
       const changedQuantityProduct = cartItems[0];
       // ALTERAMOS A QUANTIDADE DO PRODUTO REMOVIDO
-      changedQuantityProduct.quantity += 1;
+      if (
+        cartItems[0].quantity
+        < changedQuantityProduct.product.available_quantity
+      ) {
+        changedQuantityProduct.quantity += 1;
+      }
       // ADICIONAMOS NOVAMENTE AO ARRAY
       this.setState({ cartItems: [changedQuantityProduct] });
     } else {
@@ -83,7 +98,12 @@ class App extends React.Component {
         (item) => item.product.id === id,
       )[0];
       // ALTERAMOS O OBJETO DO PRODUTO
-      changedQuantityProduct.quantity += 1;
+      if (
+        changedQuantityProduct.quantity
+        < changedQuantityProduct.product.available_quantity
+      ) {
+        changedQuantityProduct.quantity += 1;
+      }
       // COLOCAMOS ELE ALTERADO NA MESMA POSIÇÂO
       cartCloneArray[quantityProductIndex] = changedQuantityProduct;
       //  MUDAMOS O ESTADO
@@ -133,7 +153,8 @@ class App extends React.Component {
                 { ...props }
                 cartItems={ cartItems }
                 addToCart={ this.addToCart }
-              />) }
+              />
+            ) }
           />
           <Route
             path="/cart"
