@@ -12,7 +12,15 @@ class ProductsList extends React.Component {
             <span>{ item.title }</span>
             <img src={ item.thumbnail } alt={ item.title } />
             <span>{ item.price }</span>
-            <Link to={ `/product/details/${item.id}` } data-testid="product-detail-link">
+            { item.shipping.free_shipping && (
+              <span data-testid="free-shipping" className="free-shipping">
+                Frete Grátis!
+              </span>
+            ) }
+            <Link
+              to={ `/product/details/${item.id}` }
+              data-testid="product-detail-link"
+            >
               Ver detalhes
             </Link>
             <button
@@ -24,7 +32,8 @@ class ProductsList extends React.Component {
             >
               Adicionar ao Carrinho
             </button>
-          </div>))}
+          </div>
+        )) }
       </div>
     );
   }
