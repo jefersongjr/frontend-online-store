@@ -29,7 +29,7 @@ class Home extends React.Component {
       categoria,
       searchInput,
     );
-    if (searchInput !== '') {
+    if (categoria !== '' || searchInput !== '') {
       if (itemsFound.results !== undefined) {
         this.setState({ productsList: itemsFound.results, searched: true });
       } else {
