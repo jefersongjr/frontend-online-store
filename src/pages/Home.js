@@ -16,7 +16,12 @@ class Home extends React.Component {
   };
 
   componentDidUpdate() {
-    this.sortPrice();
+    const { dropdown } = this.state;
+    if (dropdown === 'Most Reviews') {
+      this.searchItem();
+    } if (dropdown !== 'Most Reviews') {
+      this.sortPrice();
+    }
   }
 
   onInputChange = ({ target }) => {
@@ -46,10 +51,10 @@ class Home extends React.Component {
 
   sortPrice = () => {
     const { dropdown, productsList } = this.state;
-    if (dropdown !== 'Price: Low to High') {
-      productsList.sort((a, b) => a.price - b.price);
-    } else if (dropdown !== 'Price: High to Low') {
+    if (dropdown === 'Price: Low to High') {
       productsList.sort((b, a) => a.price - b.price);
+    } if (dropdown === 'Price: High to Low') {
+      productsList.sort((a, b) => a.price - b.price);
     }
   }
 
