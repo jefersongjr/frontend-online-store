@@ -4,6 +4,7 @@ import Categorias from '../components/Categorias';
 import Header from '../components/Header';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import ProductsList from '../components/ProductsList';
+import Dropdown from '../components/Dropdown';
 
 class Home extends React.Component {
   state = {
@@ -11,7 +12,12 @@ class Home extends React.Component {
     categoria: '',
     searchInput: '',
     searched: false,
+    dropdown: 'Most Reviews',
   };
+
+  componentDidUpdate() {
+    this.sortPrice();
+  }
 
   onInputChange = ({ target }) => {
     const { value, name } = target;
@@ -38,8 +44,17 @@ class Home extends React.Component {
     }
   };
 
+  sortPrice = () => {
+    const { dropdown, productsList } = this.state;
+    if (dropdown !== 'Price: Low to High') {
+      productsList.sort((a, b) => a.price - b.price);
+    } else if (dropdown !== 'Price: High to Low') {
+      productsList.sort((b, a) => a.price - b.price);
+    }
+  }
+
   render() {
-    const { productsList, searched } = this.state;
+    const { productsList, searched, dropdown } = this.state;
     const { addToCart, cartItems } = this.props;
     return (
       <section>
@@ -47,6 +62,12 @@ class Home extends React.Component {
           cartItems={ cartItems }
           searchItem={ this.searchItem }
           onInputChange={ this.onInputChange }
+        />
+
+        <Dropdown
+          onInputChange={ this.onInputChange }
+          dropdown="dropdown"
+          value={ dropdown }
         />
         <div className="container">
           {searched && productsList.length === 0 ? (
