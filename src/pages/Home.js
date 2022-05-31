@@ -19,7 +19,7 @@ class Home extends React.Component {
     const { dropdown } = this.state;
     if (dropdown === 'Most Reviews') {
       this.searchItem();
-    } if (dropdown !== 'Most Reviews') {
+    } if (dropdown === 'Price: Low to High' || dropdown === 'Price: High to Low') {
       this.sortPrice();
     }
   }
