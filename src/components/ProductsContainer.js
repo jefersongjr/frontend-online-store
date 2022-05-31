@@ -5,19 +5,26 @@ class ProductsContainer extends React.Component {
   render() {
     const { searchItem, onInputChange } = this.props;
     return (
-      <div>
+      <div className="search">
         <input
           type="text"
           data-testid="query-input"
           name="searchInput"
           onChange={ onInputChange }
+          placeholder="Estou procurando..."
+          onKeyPress={ (event) => {
+            if (event.key === 'Enter') {
+              searchItem();
+            }
+          } }
         />
         <button
+          className="search-button"
           type="button"
           data-testid="query-button"
           onClick={ searchItem }
         >
-          Search
+          <i className="uil uil-search" />
         </button>
       </div>
     );

@@ -67,18 +67,6 @@ main button {
   background-color: yellow;
 }
 
-.quantify-container {
-  border-radius: 50%;
-  background-color: yellow;
-  color: black;
-  width: 30px;
-  height: 30px;
-  font-size: 1.5em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .free-shipping {
   background-color: yellow;
 }
