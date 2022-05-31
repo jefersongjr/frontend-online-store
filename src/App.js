@@ -168,7 +168,10 @@ class App extends React.Component {
             ) }
           />
           <Route path="/cart/:product" component={ CartProduct } />
-          <Route path="/checkout" component={ Checkout } />
+          <Route
+            path="/checkout"
+            render={ (props) => <Checkout { ...props } cartItems={ cartItems } /> }
+          />
           <Route
             path="/product/details/:id"
             render={ (props) => (

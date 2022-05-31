@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class Button extends React.Component {
@@ -11,18 +10,8 @@ class Button extends React.Component {
       sumTotal = arrayQuantity.reduce((item, acc) => acc + item);
     }
     return (
-      <div>
-        <Link
-          to="/cart"
-          data-testid="shopping-cart-button"
-        >
-          carrinho de compras
-        </Link>
-        <div className="quantify-container ">
-          <p data-testid="shopping-cart-size">
-            { sumTotal }
-          </p>
-        </div>
+      <div className="quantify-container ">
+        { sumTotal }
       </div>
     );
   }

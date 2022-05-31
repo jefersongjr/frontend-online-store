@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ProductsContainer from '../components/ProductsContainer';
 import Categorias from '../components/Categorias';
 import Header from '../components/Header';
 import { getProductsFromCategoryAndQuery } from '../services/api';
@@ -12,7 +11,7 @@ class Home extends React.Component {
     categoria: '',
     searchInput: '',
     searched: false,
-  }
+  };
 
   onInputChange = ({ target }) => {
     const { value, name } = target;
@@ -21,37 +20,45 @@ class Home extends React.Component {
     } else {
       this.setState({ [name]: value }); // SE NAO ATUALIZA SOMENTE O ESTADO DO INPUT
     }
-  }
+  };
 
   // FUNÇÂO QUE CHAMA A API E ATUALIZA A LISTA DE ITEMS
   searchItem = async () => {
     const { categoria, searchInput } = this.state;
-    const itemsFound = await getProductsFromCategoryAndQuery(categoria, searchInput);
-    if (itemsFound.results !== undefined) {
-      this.setState({ productsList: itemsFound.results, searched: true });
-    } else {
-      this.setState({ searched: true });
+    const itemsFound = await getProductsFromCategoryAndQuery(
+      categoria,
+      searchInput,
+    );
+    if (searchInput !== '') {
+      if (itemsFound.results !== undefined) {
+        this.setState({ productsList: itemsFound.results, searched: true });
+      } else {
+        this.setState({ searched: true });
+      }
     }
-  }
+  };
 
   render() {
     const { productsList, searched } = this.state;
     const { addToCart, cartItems } = this.props;
     return (
       <section>
-        <Header cartItems={ cartItems } />
-        <ProductsContainer
-          onInputChange={ this.onInputChange }
+        <Header
+          cartItems={ cartItems }
           searchItem={ this.searchItem }
+          onInputChange={ this.onInputChange }
         />
         <div className="container">
-          {searched && (productsList.length === 0)
-            ? 'Nenhum produto encontrador'
-            : <ProductsList productsList={ productsList } addToCart={ addToCart } />}
+          {searched && productsList.length === 0 ? (
+            'Nenhum produto encontrador'
+          ) : (
+            <ProductsList productsList={ productsList } addToCart={ addToCart } />
+          )}
           {searched === false && (
             <p data-testid="home-initial-message">
               Digite algum termo de pesquisa ou escolha uma categoria.
-            </p>) }
+            </p>
+          )}
           <Categorias onInputChange={ this.onInputChange } />
         </div>
       </section>

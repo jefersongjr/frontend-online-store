@@ -1,9 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import Header from '../components/Header';
 
 class Checkout extends React.Component {
   render() {
+    const { cartItems } = this.props;
     return (
       <div>
+        <Header cartItems={ cartItems } />
         <form>
           <label htmlFor="input-fullname">
             Nome Completo
@@ -11,7 +15,11 @@ class Checkout extends React.Component {
           </label>
           <label htmlFor="input-email">
             Email
-            <input name="input-email" type="email" data-testid="checkout-email" />
+            <input
+              name="input-email"
+              type="email"
+              data-testid="checkout-email"
+            />
           </label>
           <label htmlFor="input-cpf">
             CPF
@@ -34,5 +42,9 @@ class Checkout extends React.Component {
     );
   }
 }
+
+Checkout.propTypes = {
+  cartItems: PropTypes.arrayOf.isRequired,
+};
 
 export default Checkout;
