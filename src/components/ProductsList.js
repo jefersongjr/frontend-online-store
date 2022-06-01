@@ -7,33 +7,44 @@ class ProductsList extends React.Component {
     const { productsList, addToCart } = this.props;
     return (
       <div className="products-container">
-        { productsList.map((item, index) => (
+        {productsList.map((item, index) => (
           <div key={ `item${index}` } className="product" data-testid="product">
-            <span>{ item.title }</span>
-            <img src={ item.thumbnail } alt={ item.title } />
-            <span>{ item.price }</span>
-            { item.shipping.free_shipping && (
+            <img
+              className="product-image"
+              src={ item.thumbnail }
+              alt={ item.title }
+            />
+            <span>
+              R$
+              { item.price }
+            </span>
+            {item.shipping.free_shipping && (
               <span data-testid="free-shipping" className="free-shipping">
                 Frete Grátis!
               </span>
-            ) }
+            )}
             <Link
               to={ `/product/details/${item.id}` }
               data-testid="product-detail-link"
+              className="button-link"
             >
               Ver detalhes
+              {' '}
+              <i className="uil uil-ellipsis-v" />
             </Link>
             <button
               type="button"
               name="product-add-to-cart"
+              className="cart-button"
               data-testid="product-add-to-cart"
               id={ JSON.stringify(item) }
               onClick={ addToCart }
             >
               Adicionar ao Carrinho
             </button>
+            <span className="item-title">{item.title}</span>
           </div>
-        )) }
+        ))}
       </div>
     );
   }

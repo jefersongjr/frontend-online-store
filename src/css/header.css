@@ -2,6 +2,9 @@ header {
   align-items: center;
   font-size: 0.8em;
   justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 }
 
 .header-box {
@@ -37,7 +40,8 @@ nav {
 .search input {
   border: 1px solid white;
   border-radius: 5px;
-  width: 50vw;
+  height: 3.5vh;
+  width: 40vw;
 }
 
 .nav-items {
@@ -64,7 +68,8 @@ nav {
 }
 
 .logo {
-  height: 8vh ! important;
+  height: 5vh ! important;
+  margin: 0 5px;
   width: auto ! important;
 }
 
@@ -93,13 +98,10 @@ nav {
 }
 
 .display-none {
-  background-color: #036b52;
-  bottom: 100px;
-  display: flex;
-  flex-direction: column;
-  font-weight: 900;
-  padding: 10px;
+  bottom: 80px;
   position: relative;
+  z-index: -2 !important;
+  transition: .2s;
 }
 
 .text-menu {
