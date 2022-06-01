@@ -81,48 +81,50 @@ class ProductDetails extends React.Component {
     return (
       <>
         <Header cartItems={ cartItems } />
-        <main
-          className="container-fluid
-          py-4
-          card
-          detailsPage
-          space-between"
-        >
+        <main>
+          <section
+            className="container-fluid
+            py-4
+            card
+            detailsPage
+            space-between"
+          >
 
-          <div className="m-3">
-            <img src={ thumbnail } alt={ title } />
-          </div>
+            <div className="m-3">
+              <img src={ thumbnail } alt={ title } />
+            </div>
 
-          <div className="fs-1 ms-1 mt-3 detailsInfo">
+            <div className="fs-1 ms-1 mt-3 detailsInfo">
 
-            <h2 data-testid="product-detail-name">{ title }</h2>
+              <h2 data-testid="product-detail-name">{ title }</h2>
 
-            <p>
-              R$
-              { price }
-            </p>
-            <button
-              className="btn btn-success button"
-              type="submit"
-              data-testid="product-detail-add-to-cart"
-              id={ JSON.stringify(product) }
-              onClick={ addToCart }
-            >
-              Adicionar ao Carrinho
-            </button>
+              <p>
+                R$
+                { price }
+              </p>
+              <button
+                className="btn btn-success button"
+                type="submit"
+                data-testid="product-detail-add-to-cart"
+                id={ JSON.stringify(product) }
+                onClick={ addToCart }
+              >
+                Adicionar ao Carrinho
+              </button>
 
-          </div>
+            </div>
 
+          </section>
+          <AvaluationForm
+            className="mb-5"
+            userEmail={ userEmail }
+            avaluation={ avaluation }
+            userDescription={ userDescription }
+            sendAvaluation={ this.sendAvaluation }
+            onInputChange={ this.onInputChange }
+          />
+          <AvaluationBoard avaluationsSaved={ savedAvaluations } />
         </main>
-        <AvaluationForm
-          className="mb-5"
-          userEmail={ userEmail }
-          avaluation={ avaluation }
-          userDescription={ userDescription }
-          sendAvaluation={ this.sendAvaluation }
-          onInputChange={ this.onInputChange }
-        />
-        <AvaluationBoard avaluationsSaved={ savedAvaluations } />
       </>
     );
   }

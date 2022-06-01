@@ -60,7 +60,7 @@ class Home extends React.Component {
           searchItem={ this.searchItem }
           onInputChange={ this.onInputChange }
         />
-        <label htmlFor="sort-by-price" >
+        <label htmlFor="sort-by-price">
           <select name="sort-by-price">
             <option value="sortByPrice" selected>Ordenar por preço</option>
             <option value="lowToHigh">Menor Preço</option>
@@ -93,7 +93,7 @@ class Home extends React.Component {
       </>
     );
   }
-} 
+}
 
 Home.propTypes = {
   addToCart: PropTypes.func.isRequired,
