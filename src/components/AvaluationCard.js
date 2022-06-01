@@ -5,12 +5,19 @@ class AvaluationCard extends React.Component {
   render() {
     const { email, rate, description } = this.props;
     return (
-      <div>
+      <div className="card mb-3 p-3">
         <div>
-          <span>{ email }</span>
+          <span>
+            e-mail:
+            { email }
+          </span>
         </div>
-        <span>{ rate }</span>
+        <span>
+          Nota:
+          { rate }
+        </span>
         <p>
+          Comentário:
           { description }
         </p>
       </div>

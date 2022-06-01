@@ -64,7 +64,8 @@ class ProductDetails extends React.Component {
       addToCart,
       match: {
         params: { id },
-      }, cartItems,
+      },
+      cartItems,
     } = this.props;
     const { product, userEmail, avaluation, userDescription } = this.state;
     const { title, price, thumbnail } = product;
@@ -80,20 +81,41 @@ class ProductDetails extends React.Component {
     return (
       <>
         <Header cartItems={ cartItems } />
-        <main>
-          <h2 data-testid="product-detail-name">{title}</h2>
-          <img src={ thumbnail } alt={ title } />
-          <p>{price}</p>
-          <button
-            type="button"
-            data-testid="product-detail-add-to-cart"
-            id={ JSON.stringify(product) }
-            onClick={ addToCart }
-          >
-            Adicionar ao Carrinho
-          </button>
+        <main
+          className="container-fluid
+          py-4
+          card
+          detailsPage
+          space-between"
+        >
+
+          <div className="m-3">
+            <img src={ thumbnail } alt={ title } />
+          </div>
+
+          <div className="fs-1 ms-1 mt-3 detailsInfo">
+
+            <h2 data-testid="product-detail-name">{ title }</h2>
+
+            <p>
+              R$
+              { price }
+            </p>
+            <button
+              className="btn btn-success button"
+              type="submit"
+              data-testid="product-detail-add-to-cart"
+              id={ JSON.stringify(product) }
+              onClick={ addToCart }
+            >
+              Adicionar ao Carrinho
+            </button>
+
+          </div>
+
         </main>
         <AvaluationForm
+          className="mb-5"
           userEmail={ userEmail }
           avaluation={ avaluation }
           userDescription={ userDescription }

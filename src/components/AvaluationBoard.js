@@ -6,7 +6,7 @@ class AvaluationBoard extends React.Component {
   render() {
     const { avaluationsSaved } = this.props;
     return (
-      <section className="avaluations-saved-sec">
+      <section className="avaluations-saved-sec card mb-5">
         {avaluationsSaved.map((avaluation, index) => (
           <AvaluationCard
             key={ index }

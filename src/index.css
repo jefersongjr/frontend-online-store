@@ -39,20 +39,6 @@ img {
   display: flex;
 }
 
-.user-rating-sec {
-  width: 100%;
-  display: flex;
-  margin-top: 60px;
-  flex-direction: column;
-  align-items: center;
-}
-
-.rating-container {
-  padding: 20px;
-  border: 2px solid black;
-  width: 90%;
-}
-
 main {
   display: flex;
   flex-direction: column;
