@@ -1,0 +1,176 @@
+.categorias {
+  margin: 0;
+  padding: 0;
+  color: #386c70;
+  /* padding: 50px;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  overflow: scroll; */
+}
+
+.container {
+  padding: 50px;
+}
+
+.products-container {
+  color: #386c70;
+  display: flex;
+  width: 80%;
+  margin-top: 80px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.product {
+  height: 300px;
+  width: 300px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #48929754;
+  margin: 10px;
+  border-radius: 15px;
+  transition: .5s;
+}
+
+.product:hover {
+  -webkit-box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.75);
+  box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.75);
+  transition: .2s;
+}
+
+
+.product-image {
+  min-width: 50%;
+  height: auto;
+  align-self: center;
+}
+
+.item-title {
+  font-size: 0.8em;
+}
+
+.active a{
+  color: white !important;
+}
+
+.button-link {
+  color: #036b52;
+  transition: .2s;
+  text-decoration: none;
+}
+
+.button-link:hover {
+  opacity: 40%;
+  transition: .2s;
+}
+
+.cart-button {
+  border-radius: 5px;
+  color: #386c70;
+  border: 1px solid #4892975b;
+  transition: .2s;
+}
+
+.cart-button:hover {
+  opacity: 40%;
+  transition: .2s;
+}
+
+/* img {
+  object-fit: contain !important;
+} */
+
+#caroulselBasicExample, 
+.carousel-inner,
+.carousel-item,
+.carousel-item.active {
+  height: 70vh;
+
+}
+
+.carousel-item:nth-child(1) {
+  background-image: url(https://images.unsplash.com/photo-1532295454114-d7bc89024613?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.carousel-item:nth-child(2) {
+  background-image: url(https://s2.glbimg.com/2yK3rTPvEDofzpusIhAgrkasz9A=/e.glbimg.com/og/ed/f/original/2019/09/30/oriontree_fairbairn_960.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.carousel-item:nth-child(3) {
+  background-image: url(https://s2.glbimg.com/2yK3rTPvEDofzpusIhAgrkasz9A=/e.glbimg.com/og/ed/f/original/2019/09/30/oriontree_fairbairn_960.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#caroulselBasicExample {
+  margin-top: -66.6px;
+}
+
+.navbar {
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(110, 101, 101, 0.192);
+}
+
+.free-shipping {
+  color: #24d600f8;
+}
+
+.filter {
+  display: none;
+}
+@media screen and (max-width: 375px) {
+  .categorias {
+    margin: 0;
+    padding: 0;
+    color: #386c70;
+    padding: 50px;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    overflow: scroll;
+    background-color: #036b53d7;
+    color: white;
+    display: none;
+  }
+  
+  .container {
+    flex-direction: column-reverse;
+  }
+
+  .filter {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    color: #036b53d7;
+  }
+
+  .product {
+    height: 300px;
+    width: 300px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #48929754;
+    margin: 10px;
+    border-radius: 15px;
+    transition: .5s;
+  }
+}
