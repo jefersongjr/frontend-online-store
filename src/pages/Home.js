@@ -60,14 +60,14 @@ class Home extends React.Component {
           searchItem={ this.searchItem }
           onInputChange={ this.onInputChange }
         />
+        <Slider />
         <label htmlFor="sort-by-price">
-          <select name="sort-by-price">
+          <select name="sort-by-price" onChange={ this.handleSelectChange }>
             <option value="sortByPrice" selected>Ordenar por preço</option>
             <option value="lowToHigh">Menor Preço</option>
             <option value="highToLow">Maior Preço</option>
           </select>
         </label>
-        <Slider />
         <div className="container">
           {searched && productsList.length === 0
             ? 'Nenhum produto encontrador'
