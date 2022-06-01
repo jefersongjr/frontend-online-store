@@ -5,11 +5,11 @@ class AvaluationForm extends React.Component {
   render() {
     const { onInputChange, sendAvaluation, userEmail, userDescription } = this.props;
     return (
-      <section className="user-rating-sec">
-        <div className="rating-container">
+      <section className="user-rating-sec mb-5">
+        <div className="rating-container card">
           <div>
             <input
-              className="email"
+              className="email form-control mb-3"
               type="email"
               value={ userEmail }
               name="userEmail"
@@ -18,6 +18,7 @@ class AvaluationForm extends React.Component {
               onChange={ onInputChange }
             />
             <input
+              className="form-check-input mb-3"
               type="radio"
               name="avaluation"
               value="1"
@@ -25,6 +26,7 @@ class AvaluationForm extends React.Component {
               onChange={ onInputChange }
             />
             <input
+              className="form-check-input mb-3"
               type="radio"
               name="avaluation"
               value="2"
@@ -32,6 +34,7 @@ class AvaluationForm extends React.Component {
               onChange={ onInputChange }
             />
             <input
+              className="form-check-input mb-3"
               type="radio"
               name="avaluation"
               value="3"
@@ -39,6 +42,7 @@ class AvaluationForm extends React.Component {
               onChange={ onInputChange }
             />
             <input
+              className="form-check-input mb-3"
               type="radio"
               name="avaluation"
               value="4"
@@ -46,6 +50,7 @@ class AvaluationForm extends React.Component {
               onChange={ onInputChange }
             />
             <input
+              className="form-check-input mb-3"
               type="radio"
               name="avaluation"
               value="5"
@@ -55,6 +60,7 @@ class AvaluationForm extends React.Component {
           </div>
           <div>
             <textarea
+              className="form-control mb-3 textarea"
               id="userDescription"
               name="userDescription"
               rows="5"
@@ -65,6 +71,7 @@ class AvaluationForm extends React.Component {
             />
           </div>
           <button
+            className="btn btn-outline-success"
             type="button"
             data-testid="submit-review-btn"
             onClick={ sendAvaluation }

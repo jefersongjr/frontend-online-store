@@ -13,6 +13,17 @@ class Home extends React.Component {
     searched: false,
   };
 
+  handleSelectChange = ({ target }) => {
+    const { productsList } = this.state;
+    if (target.value === 'lowToHigh') {
+      this.setState({ productsList: productsList.sort((a, b) => a.price - b.price) });
+    }
+    if (target.value === 'highToLow') {
+      this.setState({ productsList: productsList.sort((a, b) => b.price - a.price) });
+    }
+    if (target.value === 'sortByPrice') this.searchItem();
+  }
+
   onInputChange = ({ target }) => {
     const { value, name } = target;
     if (name === 'categoria') {
@@ -29,7 +40,7 @@ class Home extends React.Component {
       categoria,
       searchInput,
     );
-    if (searchInput !== '') {
+    if (categoria !== '' || searchInput !== '') {
       if (itemsFound.results !== undefined) {
         this.setState({ productsList: itemsFound.results, searched: true });
       } else {
@@ -48,6 +59,13 @@ class Home extends React.Component {
           searchItem={ this.searchItem }
           onInputChange={ this.onInputChange }
         />
+        <label htmlFor="sort-by-price" onChange={ this.handleSelectChange }>
+          <select name="sort-by-price">
+            <option value="sortByPrice" selected>Ordenar por preço</option>
+            <option value="lowToHigh">Menor Preço</option>
+            <option value="highToLow">Maior Preço</option>
+          </select>
+        </label>
         <div className="container">
           {searched && productsList.length === 0 ? (
             'Nenhum produto encontrador'

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Button from './Button';
 import ProductsContainer from './ProductsContainer';
-import logo from '../imgs/trybe-logo.png';
+import TrybeStore from '../imgs/TrybeStore.PNG';
 
 const displayNone = 'display-none';
 
@@ -29,7 +29,7 @@ class Header extends React.Component {
       <header>
         <div className="header-box">
           <Link to="/">
-            <img className="logo" src={ logo } alt="logo da trybe" />
+            <img className="logo" src={ TrybeStore } alt="logo da trybe" />
           </Link>
           <ProductsContainer
             onInputChange={ onInputChange }
