@@ -1,10 +1,11 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  
+}
+
+section {
+  margin: 0;
+  padding: 0;
 }
 
 code {
@@ -25,14 +26,12 @@ img {
 
 .container {
   display: flex;
+  width: 100vw;
+  max-width: 100%;
   flex-direction: row-reverse;
-  justify-content: space-evenly;
-  padding: 50px;
-}
-
-.products-container {
-  display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
 }
 
 .flex {
@@ -42,7 +41,6 @@ img {
 main {
   display: flex;
   flex-direction: column;
-  margin: 20px 4%;
 }
 
 main button {
@@ -50,9 +48,5 @@ main button {
   border: none;
   border-radius: 10px;
   padding: 5px;
-  background-color: yellow;
-}
-
-.free-shipping {
   background-color: yellow;
 }

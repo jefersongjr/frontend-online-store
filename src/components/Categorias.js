@@ -20,7 +20,7 @@ class Categorias extends React.Component {
     const { categories } = this.state;
     const { onInputChange } = this.props;
     return (
-      <section>
+      <section className="categorias">
         <div>
           <h3>Categorias:</h3>
         </div>

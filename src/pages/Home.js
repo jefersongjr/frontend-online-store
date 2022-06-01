@@ -4,6 +4,7 @@ import Categorias from '../components/Categorias';
 import Header from '../components/Header';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import ProductsList from '../components/ProductsList';
+import Slider from '../components/Slider';
 
 class Home extends React.Component {
   state = {
@@ -29,7 +30,7 @@ class Home extends React.Component {
     if (name === 'categoria') {
       this.setState({ [name]: value }, this.searchItem); // SE FOR CATEGORIA JA ATUALIZA NO CLICK DO RADIO
     } else {
-      this.setState({ [name]: value }); // SE NAO ATUALIZA SOMENTE O ESTADO DO INPUT
+      this.setState({ [name]: value }); // SE NAO ATUALIZASOMENTE O ESTADO DO INPUT
     }
   };
 
@@ -53,33 +54,43 @@ class Home extends React.Component {
     const { productsList, searched } = this.state;
     const { addToCart, cartItems } = this.props;
     return (
-      <section>
+      <>
         <Header
           cartItems={ cartItems }
           searchItem={ this.searchItem }
           onInputChange={ this.onInputChange }
         />
-        <label htmlFor="sort-by-price" onChange={ this.handleSelectChange }>
+        <label htmlFor="sort-by-price">
           <select name="sort-by-price">
             <option value="sortByPrice" selected>Ordenar por preço</option>
             <option value="lowToHigh">Menor Preço</option>
             <option value="highToLow">Maior Preço</option>
           </select>
         </label>
+        <Slider />
         <div className="container">
-          {searched && productsList.length === 0 ? (
-            'Nenhum produto encontrador'
-          ) : (
-            <ProductsList productsList={ productsList } addToCart={ addToCart } />
-          )}
+          {searched && productsList.length === 0
+            ? 'Nenhum produto encontrador'
+            : searched && (
+              <ProductsList
+                productsList={ productsList }
+                addToCart={ addToCart }
+              />
+            )}
           {searched === false && (
-            <p data-testid="home-initial-message">
-              Digite algum termo de pesquisa ou escolha uma categoria.
-            </p>
+            <div className="products-container">
+              <p data-testid="home-initial-message">
+                Digite algum termo de pesquisa ou escolha uma categoria.
+              </p>
+            </div>
           )}
+          <div className="filter">
+            <i className="uil uil-exchange-alt" />
+            Ordenar
+          </div>
           <Categorias onInputChange={ this.onInputChange } />
         </div>
-      </section>
+      </>
     );
   }
 }
