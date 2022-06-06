@@ -7,8 +7,8 @@ class CartItems extends React.Component {
   render() {
     const { cartItems, addProductQuantity, removeProductQuantity } = this.props;
     return (
-      <div>
-        {cartItems.map((item, index) => (
+      <div className="py-5">
+        { cartItems.map((item, index) => (
           <ProductCard
             key={ `product${index}` }
             removeProductQuantity={ removeProductQuantity }
@@ -16,13 +16,27 @@ class CartItems extends React.Component {
             quantity={ item.quantity }
             item={ item.product }
           />
-        ))}
-        <Link
-          data-testid="checkout-products"
-          to="/checkout"
-        >
-          Finalizar Compra
-        </Link>
+
+        )) }
+
+        <div className="flex">
+          <div
+            className="btn
+          btn-success
+          button-cart
+          flex
+          mb-3
+          mx-auto"
+          >
+
+            <Link
+              data-testid="checkout-products"
+              to="/checkout"
+            >
+              Finalizar Compra
+            </Link>
+          </div>
+        </div>
       </div>
     );
   }
