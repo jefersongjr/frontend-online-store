@@ -8,7 +8,7 @@ class ProductsList extends React.Component {
     return (
       <div className="products-container">
         {productsList.map((item, index) => (
-          <div key={ `item${index}` } className="product" data-testid="product">
+          <div key={ `item${index}` } className="product card" data-testid="product">
             <img
               className="product-image"
               src={ item.thumbnail }
