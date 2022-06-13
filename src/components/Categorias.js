@@ -18,18 +18,24 @@ class Categorias extends React.Component {
 
   render() {
     const { categories } = this.state;
-    const { onInputChange } = this.props;
+    const { onInputChange, handleSelectChange, categoriaClass } = this.props;
     return (
-      <section className="categorias">
+      <section className={ categoriaClass }>
         <div>
-          <h3>Categorias:</h3>
+          <h3 className="title-text">Categorias:</h3>
+          <label htmlFor="sort-by-price">
+            <select name="sort-by-price" onChange={ handleSelectChange }>
+              <option value="sortByPrice" selected>
+                Ordenar por preço
+              </option>
+              <option value="lowToHigh">Menor Preço</option>
+              <option value="highToLow">Maior Preço</option>
+            </select>
+          </label>
         </div>
-        { categories.map((categoria) => (
+        {categories.map((categoria) => (
           <div key={ categoria.id }>
-            <label
-              data-testid="category"
-              htmlFor={ categoria.id }
-            >
+            <label data-testid="category" htmlFor={ categoria.id }>
               <input
                 type="radio"
                 id={ categoria.id }
@@ -37,10 +43,10 @@ class Categorias extends React.Component {
                 value={ categoria.id }
                 onClick={ onInputChange }
               />
-              { categoria.name }
+              {categoria.name}
             </label>
           </div>
-        )) }
+        ))}
       </section>
     );
   }
@@ -48,6 +54,8 @@ class Categorias extends React.Component {
 
 Categorias.propTypes = {
   onInputChange: PropTypes.func.isRequired,
+  handleSelectChange: PropTypes.func.isRequired,
+  categoriaClass: PropTypes.string.isRequired,
 };
 
 export default Categorias;
