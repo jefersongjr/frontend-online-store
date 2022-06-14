@@ -80,20 +80,6 @@
   height: 70vh;
 }
 
-.carousel-item:nth-child( 1 ) {
-  background-image: url('https://images.unsplash.com/photo-1532295454114-d7bc89024613?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.carousel-item:nth-child( 2 ) {
-  background-image: url('https://s2.glbimg.com/2yK3rTPvEDofzpusIhAgrkasz9A=/e.glbimg.com/og/ed/f/original/2019/09/30/oriontree_fairbairn_960.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .carousel-item:nth-child( 3 ) {
   background-image: url('https://s2.glbimg.com/2yK3rTPvEDofzpusIhAgrkasz9A=/e.glbimg.com/og/ed/f/original/2019/09/30/oriontree_fairbairn_960.jpg');
   background-position: center center;
@@ -116,23 +102,147 @@
   display: none;
 }
 
+select {
+  background-color: #036b5300;
+  border: 1px solid #036b53d7;
+  border-radius: 5px;
+  color: #036b53d7;
+}
+
+.categorias-active {
+  color: #386c70;
+  margin: 0;
+  padding: 0;
+}
+
+.first-image {
+  align-items: center;
+  background-image: url('https://images.unsplash.com/photo-1532295454114-d7bc89024613?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  display: flex;
+  font-size: 3em;
+  height: 70vh;
+  justify-content: space-between;
+  padding: 10px;
+  transition: 0.5s;
+  width: 100%;
+}
+
+.second-image {
+  align-items: center;
+  background-image: url('https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  display: flex;
+  font-size: 3em;
+  height: 70vh;
+  justify-content: space-between;
+  padding: 10px;
+  transition: 0.5s;
+  width: 100%;
+}
+
+.third-image {
+  align-items: center;
+  background-image: url('https://images.unsplash.com/photo-1612222583502-323f4e26e2ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  display: flex;
+  font-size: 3em;
+  height: 70vh;
+  justify-content: space-between;
+  padding: 10px;
+  transition: 0.5s;
+  width: 100%;
+}
+
+.uil-angle-right-b {
+  cursor: pointer;
+}
+
+.uil-angle-left-b {
+  cursor: pointer;
+}
+
+.center-me {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.slider-btton {
+  background-color: #036b5300;
+  border: none;
+  color: #036b52;
+}
+
+.slider-btton:hover {
+  opacity: 50%;
+}
+
+.c-loader {
+  animation: is-rotating 1s infinite;
+  width: 50px;
+  border-radius: 50%;
+  height: 50px;
+  border-top: 6px solid #036b53eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 80px;
+}
+
+@keyframes is-rotating {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
 @media screen and ( max-width : 375px ) {
 
+  select {
+    background-color: #036b5300;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: #05b088eb;
+    transition: 0.6s;
+  }
+
   .categorias {
-    background-color: #036b53d7;
-    color: #386c70;
     display: none;
+  }
+
+  .categorias-active {
+    background-color: #036b53eb;
+    color: white;
     height: 100vh;
+    left: 0;
     margin: 0;
     overflow: scroll;
     padding: 50px;
-    position: absolute;
+    position: fixed;
+    top: 50px;
+    transition: 0.6s;
     width: 100vw;
     z-index: 2;
   }
 
   .container {
     flex-direction: column-reverse;
+  }
+
+  .title-text {
+    margin-bottom: 50px;
   }
 
   .filter {
