@@ -13,7 +13,7 @@ class Cart extends React.Component {
 
         { cartItems.length !== 0 ? (
 
-          <section className="">
+          <section className="cart-full">
             <CartItems
               cartItems={ cartItems }
               removeProductQuantity={ removeProductQuantity }

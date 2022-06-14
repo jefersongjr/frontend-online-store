@@ -15,6 +15,10 @@
   width: 90vw;
 }
 
+.cart-full {
+  padding-top: 150px;
+}
+
 .cart h2 {
   font-size: medium;
 }
