@@ -119,8 +119,14 @@ class Home extends React.Component {
           slideImageRight={ this.slideImageRight }
           slideImageLeft={ this.slideImageLeft }
         />
+        <div className="center-me">
+          { loading
+            ? (
+              <div className="c-loader" />
+            )
+            : ''}
+        </div>
         <div className="container">
-          <div className="center-me">{loading ? 'Loading...' : ''}</div>
           {searched && productsList.length === 0
             ? 'Nenhum produto encontrador'
             : searched && (

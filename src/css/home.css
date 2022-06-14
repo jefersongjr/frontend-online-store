@@ -173,6 +173,11 @@ select {
 
 .center-me {
   text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }
 
 .slider-btton {
@@ -185,6 +190,23 @@ select {
   opacity: 50%;
 }
 
+.c-loader {
+  animation: is-rotating 1s infinite;
+  width: 50px;
+  border-radius: 50%;
+  height: 50px;
+  border-top: 6px solid #036b53eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 80px;
+}
+
+@keyframes is-rotating {
+  to {
+    transform: rotate(1turn);
+  }
+}
 
 @media screen and ( max-width : 375px ) {
 

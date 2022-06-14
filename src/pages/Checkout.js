@@ -6,14 +6,14 @@ class Checkout extends React.Component {
   render() {
     const { cartItems } = this.props;
     return (
-      <div>
+      <>
         <Header cartItems={ cartItems } />
-        <form>
-          <label htmlFor="input-fullname">
-            Nome Completo
+        <form className="checkout">
+          <label className="label-form-item" htmlFor="input-fullname">
+            Nome
             <input name="input-fullname" data-testid="checkout-fullname" />
           </label>
-          <label htmlFor="input-email">
+          <label className="label-form-item" htmlFor="input-email">
             Email
             <input
               name="input-email"
@@ -21,24 +21,27 @@ class Checkout extends React.Component {
               data-testid="checkout-email"
             />
           </label>
-          <label htmlFor="input-cpf">
+          <label className="label-form-item" htmlFor="input-cpf">
             CPF
             <input name="input-cpf" data-testid="checkout-cpf" />
           </label>
-          <label htmlFor="input-phone-number">
+          <label className="label-form-item" htmlFor="input-phone-number">
             Telefone
             <input name="input-phone-number" data-testid="checkout-phone" />
           </label>
-          <label htmlFor="input-cep">
+          <label className="label-form-item" htmlFor="input-cep">
             CEP
             <input name="input-cep" data-testid="checkout-cep" />
           </label>
-          <label htmlFor="input-adress">
+          <label className="label-form-item" htmlFor="input-adress">
             Endereço
             <input name="input-adress" data-testid="checkout-address" />
           </label>
+          <button className="finalize-button" type="button">
+            Finalizar compra
+          </button>
         </form>
-      </div>
+      </>
     );
   }
 }
