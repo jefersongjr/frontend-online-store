@@ -7,20 +7,29 @@ class Cart extends React.Component {
   render() {
     const { cartItems, addProductQuantity, removeProductQuantity } = this.props;
     return (
-      <div>
+      <>
+
         <Header cartItems={ cartItems } />
-        {cartItems.length !== 0 ? (
-          <CartItems
-            cartItems={ cartItems }
-            removeProductQuantity={ removeProductQuantity }
-            addProductQuantity={ addProductQuantity }
-          />
+
+        { cartItems.length !== 0 ? (
+
+          <section className="">
+            <CartItems
+              cartItems={ cartItems }
+              removeProductQuantity={ removeProductQuantity }
+              addProductQuantity={ addProductQuantity }
+            />
+          </section>
+
         ) : (
+
           <p data-testid="shopping-cart-empty-message">
             Seu carrinho está vazio
           </p>
-        )}
-      </div>
+
+        ) }
+
+      </>
     );
   }
 }
