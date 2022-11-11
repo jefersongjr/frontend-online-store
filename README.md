@@ -4,7 +4,7 @@
 
 ##  🚀📋 Sobre:
 
-**Front End Online Store ** foi o projeto desenvolvido em grupo por ,[Jeferson Gomes](https://www.linkedin.com/in/jefersongjr/),
+** Front End Online Store ** foi o projeto desenvolvido em grupo por ,[Jeferson Gomes](https://www.linkedin.com/in/jefersongjr/),
 [John Leonne](https://github.com/johnleonne), [João Otávio](https://github.com/jgomesh), [Almir Araujo](https://github.com/Almir-Araujo)
 e [Rafael Silva](https://github.com/RafaMI6),
 durante o curso de formação de desenvolvimento Full Stack da [Trybe](https://www.betrybe.com/), durante o módulo de Front End.
