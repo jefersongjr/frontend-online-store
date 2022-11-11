@@ -1,6 +1,6 @@
 # Front End Online Store :shopping:
 
- <!-- ![Prévia](https://github.com/jefersongjr/trivia-game/blob/main/public/screen-recording_5_.gif) -->
+![Prévia](https://github.com/jefersongjr/frontend-online-store/blob/main/public/previa.gif)
 
 ##  🚀📋 Sobre:
 
