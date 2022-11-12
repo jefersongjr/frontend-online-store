@@ -31,5 +31,4 @@ Aonde desenvolvemos um site , a partir da API do Mercado Livre, que simula um E-
 
   * Trabalhar em grupo utilizando metodologias de desenvolvimento ágil
   * Desenvolver uma aplicação React utilizando React Router
-  * Desenvolver uma aplicação usando Redux
   * Consumir dados de uma API pública
