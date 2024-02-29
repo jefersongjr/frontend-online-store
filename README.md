@@ -22,6 +22,7 @@ Aonde desenvolvemos um site , a partir da API do Mercado Livre, que simula um E-
 * React Router
 * Redux
 * Redux thunk
+* EsLint
 
 ## :pencil: Metodologia
 
